@@ -9,6 +9,7 @@ from langchain.prompts import PromptTemplate
 from atlassian import Confluence
 import base64
 import email
+import boto3
 
 # Gmail API setup
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
