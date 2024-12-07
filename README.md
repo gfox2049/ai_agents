@@ -94,3 +94,90 @@ Feel free to submit issues and enhancement requests!
 - Anthropic's Claude v2 model
 
 ---
+
+# Email Auto-Response System with Confluence Integration
+
+## Description
+This application is an automated email response system that integrates Gmail, Confluence, and Amazon Bedrock (Claude) to provide intelligent responses to incoming emails. The system searches relevant information from Confluence and uses Claude to generate contextual responses.
+
+## Features
+- Automatically processes unread emails from Gmail
+- Searches Confluence for relevant documentation
+- Generates intelligent responses using Amazon Bedrock (Claude)
+- Sends automated replies
+- Marks processed emails as read
+
+## Prerequisites
+- Python 3.7+
+- Google Cloud Platform account with Gmail API enabled
+- Atlassian Confluence account
+- AWS account with Bedrock access
+- Required API credentials and tokens
+
+## Required Credentials
+1. Gmail API credentials (`credentials.json`)
+2. Confluence API token
+3. AWS credentials configured for Bedrock access
+
+## Installation
+
+1. Clone the repository
+```bash
+git clone [repository-url]
+```
+
+2. Install required packages
+```bash
+pip install google-auth-oauthlib google-auth-httplib2 google-api-python-client atlassian-python-api boto3 langchain
+```
+
+3. Configure credentials:
+   - Place `credentials.json` from Google Cloud Console in the root directory
+   - Update Confluence credentials in the code
+   - Configure AWS credentials using AWS CLI or environment variables
+
+## Configuration
+Update the following variables in the code:
+- Confluence URL
+- Confluence username and API token
+- AWS region
+- LLM parameters (temperature, max tokens)
+
+## Usage
+Run the script:
+```bash
+python main.py
+```
+
+The script will:
+1. Authenticate with Gmail
+2. Check for unread emails
+3. Search Confluence for relevant information
+4. Generate responses using Claude
+5. Send automated replies
+6. Mark processed emails as read
+
+## File Structure
+- `main.py`: Main application code
+- `credentials.json`: Gmail API credentials
+- `token.json`: Generated OAuth token (created automatically)
+
+## Security Notes
+- Keep all API credentials and tokens secure
+- Don't commit sensitive credentials to version control
+- Use environment variables for sensitive information
+
+## Dependencies
+- google-auth-oauthlib
+- google-auth-httplib2
+- google-api-python-client
+- atlassian-python-api
+- boto3
+- langchain
+
+## Error Handling
+The script includes basic error handling for:
+- Authentication failures
+- API rate limits
+- Message processing errors
+
